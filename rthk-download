@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+        D=`date +%Y%m%d`
+        FILEDATE=`date +%d%m%y`
+        DAY=`date +%a`
+else
+        D=`date -d $1 +%Y%m%d`
+        FILEDATE=`date -d $1 +%d%m%y`
+        DAY=`date -d $1 +%a`
+fi
+
+echo $D
+echo $FILEDATE
+echo $DAY
+
+ffmpeg -i https://rthkaod3-vh.akamaihd.net/i/m4a/radio/archive/radio2/keepuco/m4a/$D.m4a/master.m3u8 /home/wai/rthk/rthk-talklightly-$FILEDATE-$DAY.mp3
